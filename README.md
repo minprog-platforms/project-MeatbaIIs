@@ -4,7 +4,7 @@ Bij het ontwikkelen van een (groot) project moeten er vaak bestanden toegevoegd 
 ## Oplossing
 Hierom wil ik een applicatie ontwikkelen die automatisch een github project test zodra er aanpassingen gemaakt worden. Dit zorgt dat fouten direct worden opgemerkt en dat het dus ook makkelijk te achterhalen is bij welke push er een fout ontstaan is.
 
-!["Voorbeeld interface"](doc/interface schets.jpeg)
+!["Voorbeeld interface"](doc/interfaceschets.jpeg)
 Met dit interface is een gebruiker in staat om een project te linken met bestanden die de code kunnen testen. Door een link naar het project in te stellen en de juiste testbestanden te uploaden is het mogelijk om de tests te laten draaien zodra er een bestand toegevoegd of aangepast wordt bij dit project.
 
 
