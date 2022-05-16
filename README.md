@@ -13,11 +13,16 @@ Om te kunnen testen moeten testomgevingen gedownload worden zoals bijvoorbeeld p
 De testbestanden kunnen simpelweg in de container gedownload worden zodra ze toegevoegd worden door de gebruiker.
 Om te zorgen dat er wat gebeurd zodra er een nieuwe file gepushed wordt kunnnen git-hooks gebruikt worden, die staan in de volgende link uitgelegd:
 https://www.atlassian.com/git/tutorials/git-hooks 
+Er moet onderscheidt gemaakt worden tussen verschillende gebruikers. Hierbij kunnnen er simpelweg apartje mappen op de server bijgehouden worden per gebruiker, of er kunnen per gebruiker containers gemaakt worden. 
+Om te zorgen dat alle bestanden in het project gedraaid kunnen worden wordt er een eis gesteld dat de projecten een requirements.txt heeft waardoor de juiste versie van de programeertalen geinstalleerd wordt en de juiste modules geinstalleerd kunnen worden. Hierbij moet dan ook gemeld worden welke test-modules gebruikt worden.
+Het lijkt verstandig om deze talen geinstalleerd te laten zodra ze eenmaal geinstalleerd zijn. Als deze algemeen gedownload zijn in de overkoepelende container worden overeenkomende requirements tussen gebruikers niet dubbel gedownload.
+Om te voorkomen dat de server helemaal vol komt te staan kunnen programma's voor projecten die stil liggen wel verwijderd worden. Hiervoor kan simpelweg naggegaan worden hoe lang downloads niet aangeroepen zijn.
 
 ## Mogelijkheden
 Er kan ook bij elke test uitgezocht welke bestanden relevant kunnen zijn, maar dit kan moeilijkheden meebrengen omdat uit het type bestand niet altijd op te maken is of het relevant is. Een .c bestand kan relevant zijn voor pytest omdat de functie daarvan aangeroepen kan worden in een .py bestand. Daarbij kunnen plaatjes bijvoorbeeld ook relevant zijn omdat die gebruikt worden in een output.
 Het kan zijn dat bij grote projecten er veel bestanden gepushed worden. Dan is het misschien niet handig dat elke keer alle tests uitgevoerd worden. Misschien kan er een timer op de test gezet worden? Dat maximaal elk uur een test wordt uitgevoerd.
 Er kan gechecked worden op welke bestanden de wijzigingen invloed hebben, en dan kunnen alleen de relevante tests uitgevoerd worden. Maar ik weet niet of dit goed haalbaar is om te automatiseren.
+
 ## Vergelijkbare projecten voor automatisch testen
 Github actions is een manier om automatisch je projecten te testen. Het is mogelijk een workflow in te stellen die uitgevoerd wordt zodra er iets gebeurd in het github project. Hierbij kan je zelf instellen wat er precies moet gebeuren, dit kunnen dus ook testen zijn.
 https://github.com/features/actions
