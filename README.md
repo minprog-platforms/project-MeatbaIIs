@@ -19,4 +19,5 @@ Er kan ook bij elke test uitgezocht welke bestanden relevant kunnen zijn, maar d
 Het kan zijn dat bij grote projecten er veel bestanden gepushed worden. Dan is het misschien niet handig dat elke keer alle tests uitgevoerd worden. Misschien kan er een timer op de test gezet worden? Dat maximaal elk uur een test wordt uitgevoerd.
 Er kan gechecked worden op welke bestanden de wijzigingen invloed hebben, en dan kunnen alleen de relevante tests uitgevoerd worden. Maar ik weet niet of dit goed haalbaar is om te automatiseren.
 ## Vergelijkbare projecten voor automatisch testen
+Github actions is een manier om automatisch je projecten te testen. Waarschijnlijk beter dan wat ik ga bouwen.
 https://github.com/features/actions
