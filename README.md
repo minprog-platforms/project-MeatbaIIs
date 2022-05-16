@@ -17,3 +17,4 @@ https://www.atlassian.com/git/tutorials/git-hooks
 ## Mogelijkheden
 Er kan ook bij elke test uitgezocht welke bestanden relevant kunnen zijn, maar dit kan moeilijkheden meebrengen omdat uit het type bestand niet altijd op te maken is of het relevant is. Een .c bestand kan relevant zijn voor pytest omdat de functie daarvan aangeroepen kan worden in een .py bestand. Daarbij kunnen plaatjes bijvoorbeeld ook relevant zijn omdat die gebruikt worden in een output.
 Het kan zijn dat bij grote projecten er veel bestanden gepushed worden. Dan is het misschien niet handig dat elke keer alle tests uitgevoerd worden. Misschien kan er een timer op de test gezet worden? Dat maximaal elk uur een test wordt uitgevoerd.
+Er kan gechecked worden op welke bestanden de wijzigingen invloed hebben, en dan kunnen alleen de relevante tests uitgevoerd worden. Maar ik weet niet of dit goed haalbaar is om te automatiseren.
