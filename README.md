@@ -10,6 +10,7 @@ Met dit interface is een gebruiker in staat om een project te linken met bestand
 ## Benodigheden
 De applicatie heeft weinig gegevens nodig om te kunnen werken. Hij moet toegang hebben tot het github project en hij moet de test bestanden paraat hebben. De toegang tot het project kan geregeld worden door een github-gebruiker aan de applicatie te koppelen, dan moet deze gebruiker nog wel aan het project toegevoegd worden.
 Om te kunnen testen moeten testomgevingen gedownload worden zoals bijvoorbeeld pytest. Anders zou de applicatie de test-bestanden niet kunnen uitvoeren. Om te testen zal de applicatie het hele project van github pullen. Misschien dat er nog onderscheidt gemaakt kan worden tussen relevante bestanden, maar het risico is dan wel dat er toch een bestand niet gepulled wordt dat achteraf wel nodig blijkt. Denk aan een plaatje dat in de code aangeroepen wordt o.i.d.. Zodra alle test-bestanden gedraaid hebben moeten de resultaten opgeslagen worden. Hierbij kan er gedacht worden aan mail, of een aparte map in het project. 
+De testomgeving kan een dockercontainer zijn, die achteraf weer gesloten wordt.
 De testbestanden kunnen simpelweg in de container gedownload worden zodra ze toegevoegd worden door de gebruiker.
 Om te zorgen dat er wat gebeurd zodra er een nieuwe file gepushed wordt kunnnen git-hooks gebruikt worden, die staan in de volgende link uitgelegd:
 https://www.atlassian.com/git/tutorials/git-hooks 
@@ -17,6 +18,7 @@ Er moet onderscheidt gemaakt worden tussen verschillende gebruikers. Hierbij kun
 Om te zorgen dat alle bestanden in het project gedraaid kunnen worden wordt er een eis gesteld dat de projecten een requirements.txt heeft waardoor de juiste versie van de programeertalen geinstalleerd wordt en de juiste modules geinstalleerd kunnen worden. Hierbij moet dan ook gemeld worden welke test-modules gebruikt worden.
 Het lijkt verstandig om deze talen geinstalleerd te laten zodra ze eenmaal geinstalleerd zijn. Als deze algemeen gedownload zijn in de overkoepelende container worden overeenkomende requirements tussen gebruikers niet dubbel gedownload.
 Om te voorkomen dat de server helemaal vol komt te staan kunnen programma's voor projecten die stil liggen wel verwijderd worden. Hiervoor kan simpelweg naggegaan worden hoe lang downloads niet aangeroepen zijn.
+
 
 ## Mogelijkheden
 Er kan ook bij elke test uitgezocht welke bestanden relevant kunnen zijn, maar dit kan moeilijkheden meebrengen omdat uit het type bestand niet altijd op te maken is of het relevant is. Een .c bestand kan relevant zijn voor pytest omdat de functie daarvan aangeroepen kan worden in een .py bestand. Daarbij kunnen plaatjes bijvoorbeeld ook relevant zijn omdat die gebruikt worden in een output.
