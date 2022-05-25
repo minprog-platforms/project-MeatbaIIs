@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>{% block title %}Git-hub project{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<body>
+<form method="submit">
+<input name="project" id="project" type="text" value="{{ project }}" required>
+  <input type="submit" value="run">
+</form>
+</body>
+</html>
+{% endblock %}

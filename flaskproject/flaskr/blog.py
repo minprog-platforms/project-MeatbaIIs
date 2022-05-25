@@ -18,6 +18,10 @@ def index():
     ).fetchall()
     return render_template('blog/index.html', posts=posts)
 
+@bp.route('/atest')
+def test_route():
+    return render_template('blog/index.html', posts=[])
+
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
