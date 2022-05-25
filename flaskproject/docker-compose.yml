@@ -1,0 +1,20 @@
+version: "3"
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+
+services:
+    testr:
+        image: my-image
+        labels:
+            - traefik.http.routers.testr.rule=Host('testr.devops.quinner.nl')
+            - traefik.http.routers.testr.tls=true
+            - traefik.http.routers.testr.tls.certresolver=lets-encrypt
+            - traefik.port=80
+        networks:
+            - internal
+            - web
+        ports:
+            - "8000:5000"
