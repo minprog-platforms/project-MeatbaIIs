@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04d1ff74-ce35-4efd-9119-b77482748059" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flaskr/templates/testr.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flaskr/testr.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskr/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskr/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/blog.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskr/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/flaskr.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/instance/flaskr.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskr/templates/testr.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/templates/testr.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskr/testr.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/testr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

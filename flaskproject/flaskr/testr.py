@@ -27,6 +27,9 @@ def testr():
         return render_template('testr.html')
 
 
+
+
+
 # @bp.route('/testr', methods = ['submit'])
 # def testr():
 #     if request.method('submit'):
