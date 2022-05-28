@@ -4,6 +4,7 @@ from flask import (
 from werkzeug.exceptions import abort
 from werkzeug.utils import secure_filename
 # from flask import Flask
+import json
 
 import os
 from flask_socketio import SocketIO
@@ -52,20 +53,16 @@ def upload():
 def consumetasks():
     if request.method == 'POST':
         file = request.json
-        if data:
-           # print("Received Data = ", data)
-           # roomid =  app.config['uid']
-           # var = json.dumps(data)
-           # send_message(event='msg', namespace='/collectHooks', room=roomid, message=var)
-           #uploads_dir= request.form['project']
-           uploads_dir = project
-           UPLOAD_FOLDER = 'tests/' + uploads_dir
+        if file:
+           UPLOAD_FOLDER = ''
            current_app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-           os.makedirs(current_app.config['UPLOAD_FOLDER'], exist_ok=True)
-           file = request.files['file']
-           file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
-    return 'ok'
+           full_name = file['repository']['full_name']
+           project_name = file['repository']['name']
+           clone_url = file['repository']['clone_url']
+           os.system('cd tests/' + project_name)
+           os.system('git init')
+           os.system('pytest --result-log=results.txt')
+    return 'niks'
 # @bp.route('/uploader', methods = ['GET', 'upload'])
 # def upload_file():
 #     if request.method == 'upload':
