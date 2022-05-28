@@ -1,0 +1,6 @@
+F test_rotate.py
+ test_rotate.py:8: in <module>
+     from rotate import rotate, NonSquareMatrixError
+ rotate.py:10: in <module>
+     def rotate(matrix:list[list[int]]):
+ E   TypeError: 'type' object is not subscriptable

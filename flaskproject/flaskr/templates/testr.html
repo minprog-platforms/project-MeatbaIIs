@@ -6,18 +6,19 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <body>
-<form method="submit">
-<input name="project" id="project" type="text" value="{{ project }}" required>
-  <input type="submit" value="run">
-</form>
+<!-- <form method="POST">
+</form> -->
 <html>
    <body>
-      <form method = "upload"
+      <form method = "POST"
          enctype = "multipart/form-data">
+         <input name="project" id="project" type="text" value="{{ request.form['project'] }}" required>
+
          <input type = "file" name = "file" />
-         <input type = "submit"/>
+         <input type = "submit" value=Upload />
       </form>
    </body>
+
 </html>
 </body>
 </html>

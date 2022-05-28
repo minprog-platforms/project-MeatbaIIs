@@ -8,6 +8,7 @@ networks:
 services:
     testr:
         image: my-image
+        build: .
         labels:
             - traefik.http.routers.testr.rule=Host(`testr.devops.quinner.nl`)
             - traefik.http.routers.testr.tls=true
