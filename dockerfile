@@ -1,6 +1,4 @@
 FROM python:3.8-alpine
-
-
 COPY ./requirements.txt /app/requirements.txt
 
 # switch working directory
@@ -15,5 +13,5 @@ COPY ./flaskproject/ /app
 EXPOSE 5000
 
 # configure the container to run in an executed manner
-ENV FLASK_APP=flaskr
+ENV FLASK_APP=testr
 ENTRYPOINT [ "flask", "run", "--host=0.0.0.0" ]
