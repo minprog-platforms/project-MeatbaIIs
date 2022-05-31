@@ -34,6 +34,7 @@ def upload():
         if file.filename != '' and allowed_file(file.filename, ALLOWED_EXTENSIONS):
            file = request.files['file']
            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+           files.append(file.filename)
 
 
     if request.method == 'POST' and request.form['action'] == "Remove file":
@@ -42,8 +43,11 @@ def upload():
             flash('File does not exit')
             return render_template('testr.html', files = files)
         os.system('rm ' + current_app.config['UPLOAD_FOLDER'] + '/' + file_name)
+        files.remove(file_name)
 
-
+    if request.method == 'POST' and request.form['action'] == "Download file":
+        file_name = request.form['rm_file']
+        return send_from_directory(app.config["UPLOAD_FOLDER"], file_name)
 
     return render_template('testr.html', files = files)
 
