@@ -9,12 +9,22 @@
 
 <html>
    <body>
-      <form method = "POST"
-         enctype = "multipart/form-data">
+      <form method = "POST" enctype = "multipart/form-data" name="upload_form">
          <input name="project" id="project" type="text" value="{{ request.form['project'] }}" required>
          <input type = "file" name = "file" />
-         <input type = "submit" value=Upload />
-      </form>
+         <input type = "submit" name="action" value="Upload/show files" />
+
+      <h2>Files</h2>
+      <ul>
+        {% for file in files %}
+        <li>
+            <a>
+                {{ file }}
+            </a>
+        </li>
+        {% endfor %}
+      </ul>
+
    </body>
 
 </html>

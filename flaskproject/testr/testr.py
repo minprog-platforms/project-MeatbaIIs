@@ -11,27 +11,41 @@ from flask_socketio import SocketIO
 bp = Blueprint('testr', __name__)
 
 
+
 @bp.route('/testr')
 def testr():
 
-    return render_template('testr.html')
+    return render_template('testr.html', files = [])
 
 @bp.route('/testr', methods = ['POST'])
 def upload():
-    if request.method == 'POST':
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
+    uploads_dir= request.form['project']
+    UPLOAD_FOLDER = 'tests/' + uploads_dir
+    current_app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    os.makedirs(current_app.config['UPLOAD_FOLDER'], exist_ok=True)
+    files = []
+    for path in os.listdir(current_app.config['UPLOAD_FOLDER']):
+        if os.path.isfile(os.path.join(current_app.config['UPLOAD_FOLDER'], path)):
+            files.append(path)
 
-        uploads_dir= request.form['project']
-        UPLOAD_FOLDER = 'tests/' + uploads_dir
-        current_app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-        os.makedirs(current_app.config['UPLOAD_FOLDER'], exist_ok=True)
+    if request.method == 'POST' and request.form['action'] == "Upload/show files":
+        ALLOWED_EXTENSIONS = {'py'}
         file = request.files['file']
-        file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
-        #return redirect(url_for('download_file', name=filename))
-        return render_template('testr.html')
+        if file.filename != '' and allowed_file(file.filename, ALLOWED_EXTENSIONS):
+           file = request.files['file']
+           file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+
+
+    if request.method == 'POST' and request.form['action'] == "Remove file":
+        file_name = request.form['rm_file']
+        if file_name not in files:
+            flash('File does not exit')
+            return render_template('testr.html', files = files)
+        os.system('rm ' + current_app.config['UPLOAD_FOLDER'] + '/' + file_name)
+
+
+
+    return render_template('testr.html', files = files)
 
 
 
@@ -69,3 +83,8 @@ def consumetasks():
                results = f.read()
            os.system('rm -r ' + project_path + '/' + project_name)
            return results
+
+
+def allowed_file(filename, ALLOWED_EXTENSIONS):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
