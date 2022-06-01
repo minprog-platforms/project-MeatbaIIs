@@ -10,11 +10,12 @@
 <html>
    <body>
       <form method = "POST" enctype = "multipart/form-data" name="upload_form">
+         Project name:
          <input name="project" id="project" type="text" value="{{ request.form['project'] }}" required>
          <input type = "file" name = "file" />
          <input type = "submit" name="action" value="Upload/show files" />
 
-      <h2>Files</h2>
+      <h2>Files:</h2>
       <ul>
         {% for file in files %}
         <li>
@@ -24,8 +25,10 @@
         </li>
         {% endfor %}
       </ul>
+      Filename:
         <input name="rm_file" id="rm_file" type = "text">
-        <input type = "submit" name="action" value="Remove file" /> <input type = "submit" name="action" value="Download" />
+        <input type = "submit" name="action" value="Remove file" />
+        <input type = "submit" name="action" value="Download file" />
       </form>
    </body>
 
