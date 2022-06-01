@@ -1,30 +1,6 @@
-## Probleem
-Bij het ontwikkelen van een (groot) project moeten er vaak bestanden toegevoegd of veranderd worden. Hierbij kunnen gemakkelijk bugs/conflicten ontstaan. Dit kan zorgen dat essentiele bestanden in een project niet meer bruikbaar zijn en er dus hard gezocht moet worden waar de fout is ontstaan of dat er een backup gebruikt moet worden en dan gaat er dus werk verloren.
+Bij dit project is een webapplicatie ontwikkeld die automatisch een github project test als er een push gemaakt wordt. Hiervoor wordt Pytest gebruikt. Om het op te zetten voor een project is het nodig om een webhook op te zetten naar www.testr.devops.quinner.nl/webhook. Daarbij moeten ook de test bestanden geupload worden op de webpagina. Daarna wordt het vanzelf getest en wordt het resultaat naar de webhook teruggestuurd.
+Hieronder is de layout van de webpagina te zien:
 
-## Oplossing
-Hierom wil ik een applicatie ontwikkelen die automatisch een github project test zodra er aanpassingen gemaakt worden. Dit zorgt dat fouten direct worden opgemerkt en dat het dus ook makkelijk te achterhalen is bij welke push er een fout ontstaan is.
+!["Webpage"](doc/webpage.png)
 
-!["Voorbeeld interface"](doc/InterfaceSchets.jpeg)
-Met dit interface is een gebruiker in staat om een project te linken met bestanden die de code kunnen testen. Door een link naar het project in te stellen en de juiste testbestanden te uploaden is het mogelijk om de tests te laten draaien zodra er een bestand toegevoegd of aangepast wordt bij dit project. Misschien is het handig om een remove en download functie te hebben voor de testbestanden.
-
-## Benodigheden
-De applicatie heeft weinig gegevens nodig om te kunnen werken. Hij moet toegang hebben tot het github project en hij moet de test bestanden paraat hebben. De toegang tot het project kan geregeld worden door een github-gebruiker aan de applicatie te koppelen, dan moet deze gebruiker nog wel aan het project toegevoegd worden.
-Om te kunnen testen moeten testomgevingen gedownload worden zoals bijvoorbeeld pytest. Anders zou de applicatie de test-bestanden niet kunnen uitvoeren. Om te testen zal de applicatie het hele project van github pullen. Misschien dat er nog onderscheidt gemaakt kan worden tussen relevante bestanden, maar het risico is dan wel dat er toch een bestand niet gepulled wordt dat achteraf wel nodig blijkt. Denk aan een plaatje dat in de code aangeroepen wordt o.i.d.. Zodra alle test-bestanden gedraaid hebben moeten de resultaten opgeslagen worden. Hierbij kan er gedacht worden aan mail, of een aparte map in het project. 
-De testomgeving kan een dockercontainer zijn, die achteraf weer gesloten wordt.
-De testbestanden kunnen simpelweg in de container gedownload worden zodra ze toegevoegd worden door de gebruiker.
-Om te zorgen dat er wat gebeurd zodra er een nieuwe file gepushed wordt kunnnen git-hooks gebruikt worden, die staan in de volgende link uitgelegd:
-https://www.atlassian.com/git/tutorials/git-hooks 
-Er moet onderscheidt gemaakt worden tussen verschillende gebruikers. Hierbij kunnnen er simpelweg apartje mappen op de server bijgehouden worden per gebruiker, of er kunnen per gebruiker containers gemaakt worden. 
-Om te zorgen dat alle bestanden in het project gedraaid kunnen worden wordt er een eis gesteld dat de projecten een requirements.txt heeft waardoor de juiste versie van de programeertalen geinstalleerd wordt en de juiste modules geinstalleerd kunnen worden. Hierbij moet dan ook gemeld worden welke test-modules gebruikt worden.
-Het lijkt verstandig om deze talen geinstalleerd te laten zodra ze eenmaal geinstalleerd zijn. Als deze algemeen gedownload zijn in de overkoepelende container worden overeenkomende requirements tussen gebruikers niet dubbel gedownload.
-Om te voorkomen dat de server helemaal vol komt te staan kunnen programma's voor projecten die stil liggen wel verwijderd worden. Hiervoor kan simpelweg naggegaan worden hoe lang downloads niet aangeroepen zijn.
-
-
-## Mogelijkheden
-Er kan ook bij elke test uitgezocht welke bestanden relevant kunnen zijn, maar dit kan moeilijkheden meebrengen omdat uit het type bestand niet altijd op te maken is of het relevant is. Een .c bestand kan relevant zijn voor pytest omdat de functie daarvan aangeroepen kan worden in een .py bestand. Daarbij kunnen plaatjes bijvoorbeeld ook relevant zijn omdat die gebruikt worden in een output.
-Het kan zijn dat bij grote projecten er veel bestanden gepushed worden. Dan is het misschien niet handig dat elke keer alle tests uitgevoerd worden. Misschien kan er een timer op de test gezet worden? Dat maximaal elk uur een test wordt uitgevoerd.
-Er kan gechecked worden op welke bestanden de wijzigingen invloed hebben, en dan kunnen alleen de relevante tests uitgevoerd worden. Maar ik weet niet of dit goed haalbaar is om te automatiseren.
-
-## Vergelijkbare projecten voor automatisch testen
-Github actions is een manier om automatisch je projecten te testen. Het is mogelijk een workflow in te stellen die uitgevoerd wordt zodra er iets gebeurd in het github project. Hierbij kan je zelf instellen wat er precies moet gebeuren, dit kunnen dus ook testen zijn.
-https://github.com/features/actions
+Door de naam van je project in te vullen kan je vervolgens voor dat project de test bestanden managen. Als je op 'Upload/show files' klikt upload het gekozen bestand, als er geen bestand gekozen is wordt kan je wel zien welke bestanden er voor dat project op de server staan. Vervolgens kan je daaronder de bestanden downloaden of verwijderen, hiervoor moet je onder 'Filename:' de bestandsnaam invullen. Dan kan je met de knoppen eronder het bestand verwijderen of downloaden. 
