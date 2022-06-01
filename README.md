@@ -9,6 +9,7 @@ De video voor de presentatie van het project:
 https://video.uva.nl/media/Leon's%20devops%20project/0_0o2v8488
 
 Mijn gebruike hulpmiddelen:
+
 Om de flaskapplicatie te maken heb ik de volgende tutorial gebruik. De HTML layout van deze tutorial heb ik gebruikt en de __init__.py code heb ik vrijwel identiek gehouden.
 https://flask.palletsprojects.com/en/2.1.x/tutorial/
 
