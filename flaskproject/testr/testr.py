@@ -64,12 +64,14 @@ def upload():
             flash('File does not exit')
             return render_template('testr.html', files = files)
 
-        return send_from_directory(app.config["UPLOAD_FOLDER"], file_name)
+        return redirect(url_for('testr.download_file', filename=file_name))
 
     return render_template('testr.html', files = files)
 
 
-
+@bp.route('/uploads/<path:filename>')
+def download_file(filename):
+    return send_from_directory('/app/' + current_app.config['UPLOAD_FOLDER'],filename, as_attachment=True)
 
 
 
