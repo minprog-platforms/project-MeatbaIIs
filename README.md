@@ -5,6 +5,10 @@ Hieronder is de layout van de webpagina te zien:
 
 Door de naam van je project in te vullen kan je vervolgens voor dat project de test bestanden managen. Als je op 'Upload/show files' klikt upload het gekozen bestand, als er geen bestand gekozen is wordt kan je wel zien welke bestanden er voor dat project op de server staan. Vervolgens kan je daaronder de bestanden downloaden of verwijderen, hiervoor moet je onder 'Filename:' de bestandsnaam invullen. Dan kan je met de knoppen eronder het bestand verwijderen of downloaden.
 
+De video voor de presentatie van het project:
+https://video.uva.nl/media/Leon's%20devops%20project/0_0o2v8488
+
+Mijn gebruike hulpmiddelen:
 Om de flaskapplicatie te maken heb ik de volgende tutorial gebruik. De HTML layout van deze tutorial heb ik gebruikt en de __init__.py code heb ik vrijwel identiek gehouden.
 https://flask.palletsprojects.com/en/2.1.x/tutorial/
 
